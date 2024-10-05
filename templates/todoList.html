@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<a href="{% url 'todoCreate' %}" class="btn btn-primary mt-3"> Create</a>
+<div class="row row-cols-1 row-cols-md-3 g-4 mt-1">
+  {% for todo in todos %}
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h5 class="card-title">{{ todo.title }}</h5>
+        <p class="card-text">{{ todo.description }}</p>
+        <a href="{% url 'todoUpdate' todo.pk %}" class="btn btn-success">Edit</a>
+        <a href="{% url 'todoDelete' todo.pk %}" class="btn btn-danger ">Delete</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock content %}

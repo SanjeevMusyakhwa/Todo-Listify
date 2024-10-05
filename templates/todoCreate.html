@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="row mt-3">
+    <div class="col">
+      <form action="{% url 'todoCreate' %}" method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" class="form-control" id="title" name="title" placeholder="Add Title">
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea class="form-control" id="description" name="description" placeholder="Add Description"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Create</button>
+      </form>
+    </div>
+  </div>
+{% endblock content %}
